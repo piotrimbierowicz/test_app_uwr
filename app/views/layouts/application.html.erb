@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div style="width: 1000px; margin: 50px auto">
+
+      <% if flash[:notice].present? %>
+        <div style="background: lightblue"><%= flash[:notice] %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

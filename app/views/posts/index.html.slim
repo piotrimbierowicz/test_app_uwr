@@ -1,4 +1,4 @@
 - @posts.each do |post|
-  div
-    h1= post.title
-    p= post.content
+  p
+    a href=post_path(post)
+      = post.title

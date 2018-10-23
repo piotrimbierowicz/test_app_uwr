@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <div style="width: 1000px; margin: 50px auto">
+
+    <%= render partial: 'layouts/shared/navbar' %>
+
+    <div class="container">
 
       <% if flash[:notice].present? %>
         <div style="background: lightblue"><%= flash[:notice] %></div>

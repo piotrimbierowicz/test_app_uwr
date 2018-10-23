@@ -19,6 +19,8 @@ hr
 
   = f.hidden_field :post_id
 
-  p= f.text_area :content, rows: 10
+  .form-group
+    = f.text_area :content, rows: 10, class: 'form-control'
 
-  p= f.submit
+  .form-group
+    = f.submit 'Zapisz', class: 'btn btn-primary'

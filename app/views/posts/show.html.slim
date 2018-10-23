@@ -1,0 +1,26 @@
+= link_to posts_path do
+  strong Wróć do listy postów
+hr
+h1= @post.title
+p= @post.content
+
+hr
+
+ul
+  - @post.comments.each do |comment|
+    li
+      = "#{comment.content} (#{comment.created_at})"
+      - if comment.user.present?
+        = " by #{comment.user.display_name}"
+
+
+hr
+
+= form_for @comment do |f|
+  = f.hidden_field :post_id
+
+  .form-group
+    = f.text_area :content, rows: 10, class: 'form-control'
+
+  .form-group
+    = f.submit 'Zapisz', class: 'btn btn-primary'

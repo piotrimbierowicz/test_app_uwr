@@ -9,14 +9,14 @@ hr
 ul
   - @post.comments.each do |comment|
     li
-      = comment.content
-      = " (#{comment.created_at})"
+      = "#{comment.content} (#{comment.created_at})"
+      - if comment.user.present?
+        = " by #{comment.user.display_name}"
 
 
 hr
 
 = form_for @comment do |f|
-
   = f.hidden_field :post_id
 
   .form-group

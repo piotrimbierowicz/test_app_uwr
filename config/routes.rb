@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
-  namespace :user do
+  namespace :user_panel, path: 'user' do
     root to: 'profile#index'
   end
 end

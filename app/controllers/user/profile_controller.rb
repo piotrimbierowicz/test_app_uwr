@@ -1,9 +1,7 @@
-class User::ProfileController < ApplicationController
+module User
+  class ProfileController < ApplicationController
+    before_action :authenticate_user!
 
-  before_action :authenticate_user!
-
-  def index
-
+    def index; end
   end
-
 end

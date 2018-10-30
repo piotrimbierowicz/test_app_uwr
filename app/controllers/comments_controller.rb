@@ -11,4 +11,10 @@ class CommentsController < ApplicationController
 
     redirect_to @comment.post
   end
+
+  def report
+    comment = Comment.find(params[:id])
+    ReportComment.run(comment: comment)
+    redirect_to comment.post
+  end
 end

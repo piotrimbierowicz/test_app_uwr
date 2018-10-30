@@ -1,4 +1,19 @@
-- @posts.each do |post|
-  p
-    a href=post_path(post)
-      = post.title
+.row
+  h1= @view_model.featured_post.title
+  = image_tag @view_model.featured_post.thumbnail.variant(resize: "1000x200")
+
+h3 Nowe posty
+.row
+  - @view_model.new_posts.each do |post|
+    .col-sm-4
+      p
+        a href=post_path(post)
+          = post.title
+h3 Popularne posty
+
+.row
+  - @view_model.popular_posts.each do |post|
+    .col-sm-4
+      p
+        a href=post_path(post)
+          = post.title

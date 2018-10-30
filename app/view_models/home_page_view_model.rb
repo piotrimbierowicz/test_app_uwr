@@ -8,11 +8,6 @@ class HomePageViewModel
   end
 
   def popular_posts
-    Post.where(id: Comment.pluck(:post_id)
-                       .group_by { |e| e }
-                       .map { |key, value| [key, value.size] }
-                       .sort_by(&:last)
-                       .last(3)
-                       .map(&:first))
+    Post.joins(:comments).group(:post_id, :id).order('count(post_id) desc').limit(3)
   end
 end

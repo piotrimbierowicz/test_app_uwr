@@ -14,6 +14,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :course_editions, only: [:index] do
+    member do
+      get :add_to_cart
+    end
+  end
+
+  resources :carts, only: [:index]
+
   namespace :user_panel, path: 'user' do
     root to: 'profile#index'
   end

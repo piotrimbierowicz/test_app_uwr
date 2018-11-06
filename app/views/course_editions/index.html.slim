@@ -1,0 +1,7 @@
+table.table
+	- @editions.each do |edition|
+		tr
+			td= edition.course.name
+			td= edition.course.price
+			td= link_to add_to_cart_course_edition_path(edition) do
+				| Dodaj do koszyka	

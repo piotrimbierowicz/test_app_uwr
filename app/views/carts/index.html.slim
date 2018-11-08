@@ -1,0 +1,5 @@
+table.table
+  - @cart.order_items.each do |item|
+    tr
+      td= item.course_edition.course.name
+

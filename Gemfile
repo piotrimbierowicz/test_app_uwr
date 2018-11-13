@@ -52,6 +52,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'simplecov', require: false
 end
 
 group :development do

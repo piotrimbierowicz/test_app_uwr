@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'bin/*'
+    - 'vendor/bundle/**/*'
   TargetRubyVersion: 2.5
 
 LineLength:

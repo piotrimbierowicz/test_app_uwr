@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HomePageViewModel do 
+RSpec.describe HomePageViewModel do
   describe '#featured_post' do
     subject { described_class.new.featured_post }
 
@@ -19,7 +19,7 @@ RSpec.describe HomePageViewModel do
 
     it { is_expected.to be_empty }
 
-    context 'when posts exist' do  
+    context 'when posts exist' do
       let!(:post1) { FactoryBot.create :post }
       let!(:post2) { FactoryBot.create :post }
 
@@ -33,7 +33,6 @@ RSpec.describe HomePageViewModel do
         it { is_expected.to eq([post4, post3, post2]) }
       end
     end
-
   end
 
   describe '#popular_posts' do

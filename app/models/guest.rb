@@ -6,7 +6,6 @@ class Guest < ApplicationRecord
       orders.first
     else
       Order.create owner: self
-      # 2 sposób guest.orders.create
     end
   end
 end

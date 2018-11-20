@@ -4,10 +4,10 @@ class HomePageViewModel
   end
 
   def new_posts
-    Post.where.not(id: featured_post.id).last(3)
+    Post.where.not(id: featured_post&.id).order('created_at desc').first(3)
   end
 
   def popular_posts
-    Post.joins(:comments).group(:post_id, :id).order('count(post_id) desc').limit(3)
+    Post.left_joins(:comments).group(:post_id, :id).order('count(post_id) desc, created_at desc').first(3)
   end
 end

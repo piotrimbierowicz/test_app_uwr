@@ -20,10 +20,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :carts, only: [:index]
+  resources :carts, only: [:index] do
+    collection do
+      post :confirm
+    end
+  end
 
   namespace :user_panel, path: 'user' do
     root to: 'profile#index'
+
+    resources :orders, only: %i[show index] do
+      member do
+        patch :confirm
+      end
+    end
   end
 
   mount Sidekiq::Web => '/sidekiq'

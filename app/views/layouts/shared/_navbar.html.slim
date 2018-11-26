@@ -10,10 +10,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       li.nav-item class=(current_page?(user_panel_root_path) ? 'active' : '')
         a.nav-link href=user_panel_root_path
           | User panel
-      /li.nav-item
-      /  a.nav-link href="#"  Features
-      /li.nav-item
-      /  a.nav-link href="#"  Pricing
+      li.nav-item
+        a.nav-link href=course_editions_path Courses
+      li.nav-item
+        a.nav-link href=user_panel_orders_path Orders
+      li.nav-item
+        a.nav-link href=carts_path 
+          = "Cart (#{current_guest.cart.order_items.size})"
 
       li.nav-item
         - if user_signed_in?

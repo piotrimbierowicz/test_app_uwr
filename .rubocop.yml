@@ -17,6 +17,9 @@ Style/FrozenStringLiteralComment:
 Style/AsciiComments:
   Enabled: false
 
+MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb' 

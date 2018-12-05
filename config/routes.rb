@@ -36,5 +36,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    get 'users/email_exists', to: 'users#email_exists'
+
+    resources :courses, only: [:index]
+  end
+
   mount Sidekiq::Web => '/sidekiq'
 end

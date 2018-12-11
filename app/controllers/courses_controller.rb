@@ -16,14 +16,13 @@ class CoursesController < ApplicationController
   def apply_sorting
     cookies[:courses_sorting] = sorting
 
-  	if sorting.in? ['created_at desc', 'created_at asc']
-  		@courses = @courses.reorder(sorting)
-    elsif sorting.in? ['popular desc', 'popular asc'] 	
+    if sorting.in? ['created_at desc', 'created_at asc']
+      @courses = @courses.reorder(sorting)
+    elsif sorting.in? ['popular desc', 'popular asc']
       order = sorting.split(' ').last
       @courses = @courses.left_joins(course_editions: :order_items)
-                         .group(:course_id, :id)
-                         .reorder("count(*) #{order}")
+        .group(:course_id, :id)
+        .reorder("count(*) #{order}")
     end
-  
   end
 end

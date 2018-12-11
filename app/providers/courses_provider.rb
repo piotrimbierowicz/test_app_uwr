@@ -9,7 +9,7 @@ class CoursesProvider
   def filter_by_key(key)
     @results = if key.nil?
                  @results
-               elsif key == '' 
+               elsif key == ''
                  []
                else
                  @results.search(key)

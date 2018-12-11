@@ -30,18 +30,16 @@ RSpec.describe CoursesProvider do
       it { is_expected.to be_blank }
     end
 
-    context do 
+    context do
       let(:key) { 'developer front' }
 
       it { is_expected.to include(course1) }
     end
 
-
-    context do 
+    context do
       let(:key) { 'frontend developers' }
-      
+
       it { is_expected.to include(course1) }
     end
-
   end
 end

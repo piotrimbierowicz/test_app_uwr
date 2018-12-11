@@ -1,8 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+require 'open-uri'
+
+# 50.times do
+#   # create Course
+#   course = Course.create!(
+#     name: Faker::Book.title,
+#     description: Faker::Lorem.paragraphs(5).join("\n"),
+#     price: Faker::Commerce.price
+#   )
 #
-# Examples:
+#   # attach thumbnail
+#   image_path = 'http://lorempixel.com/600/400/city/'
+#   file = open(URI.parse(image_path))
+#   course.thumbnail.attach(io: file, filename: 'thumbnail.jpg', content_type: 'image/jpg')
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+#   # create CourseEditions
+#   [1,2,4].sample.times do |i|
+#     start_time = (i+2).months.from_now
+#     CourseEdition.create!(
+#       course: course,
+#       starts_on: start_time,
+#       ends_on: start_time + 7.days
+#     )
+#   end
+# end

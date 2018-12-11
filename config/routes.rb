@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :courses, only: [:index]
+
   resources :carts, only: [:index] do
     collection do
       post :confirm

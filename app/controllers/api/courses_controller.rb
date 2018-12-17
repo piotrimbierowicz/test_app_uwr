@@ -1,7 +1,7 @@
 module Api
   class CoursesController < ApplicationController
     def index
-      provider = CoursesProvider.new(key: params[:key])
+      provider = CoursesProvider.new(params[:key])
 
       render json: provider.results
     end

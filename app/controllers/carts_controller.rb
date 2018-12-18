@@ -4,9 +4,15 @@ class CartsController < ApplicationController
   end
 
   def confirm
-    cart = current_guest.cart
-    cart.update status: Order::PENDING_ORDER_STATUS
+    outcome = ConfirmCart.run(cart: current_guest.cart)
 
-    redirect_to user_panel_order_path(cart)
+   	if outcome.valid?
+      flash[:notice] = 'OK'
+    	redirect_to user_panel_order_path(cart)
+    else
+      flash[:notice] = 'Błąd'
+      redirect_to user_panel_order_path(cart)
+    end
+
   end
 end

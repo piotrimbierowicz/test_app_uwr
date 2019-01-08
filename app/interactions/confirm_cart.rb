@@ -22,8 +22,6 @@ class ConfirmCart < ActiveInteraction::Base
   end
 
   def items_available
-    if cart.order_items.any? { |item| item.course_edition.quantity == 0 }
-      errors.add(:base, 'is not availale')
-    end
+    errors.add(:base, 'is not availale') if cart.order_items.any? { |item| item.course_edition.quantity.zero? }
   end
 end

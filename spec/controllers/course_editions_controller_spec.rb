@@ -19,7 +19,7 @@ RSpec.describe CourseEditionsController do
       end
 
       it do
-        expect(subject).to redirect_to(course_editions_path)
+        expect(subject).to redirect_to(courses_path)
       end
     end
 
@@ -33,7 +33,7 @@ RSpec.describe CourseEditionsController do
       end
 
       it do
-        expect(subject).to redirect_to(course_editions_path)
+        expect(subject).to redirect_to(courses_path)
       end
     end
   end

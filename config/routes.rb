@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :course_editions, only: [:index] do
-    member do
+  resources :course_editions, only: [] do
+    collection do
       post :add_to_cart
     end
   end

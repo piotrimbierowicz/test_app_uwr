@@ -1,8 +1,4 @@
 class CourseEditionsController < ApplicationController
-  def index
-    @editions = CourseEdition.all
-  end
-
   def add_to_cart
     edition = CourseEdition.find(params[:id])
     outcome = AddToCart.run(guest: current_guest, course_edition: edition)
@@ -13,6 +9,6 @@ class CourseEditionsController < ApplicationController
                        outcome.errors.full_messages
                      end
 
-    redirect_to course_editions_path
+    redirect_to courses_path
   end
 end

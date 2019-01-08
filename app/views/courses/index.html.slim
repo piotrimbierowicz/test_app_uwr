@@ -15,7 +15,27 @@
               p.card-text= course.name
               .d-flex.justify-content-between.align-items-center
                 .btn-group
-                  button.btn.btn-sm.btn-outline-secondary type="button"  View
-                  button.btn.btn-sm.btn-outline-secondary type="button"  Edit
+                  button.btn.btn-sm.btn-outline-secondary type="button" data-toggle="modal" data-target="#course-modal-#{course.id}"
+                    | Edycje
                 small.text-muted= course.sold_count
+
+          .modal.fade aria-hidden="true" aria-labelledby="exampleModalCenterTitle" role="dialog" tabindex="-1" id="course-modal-#{course.id}"
+            .modal-dialog.modal-dialog-centered role="document" 
+              .modal-content
+                = form_tag add_to_cart_course_editions_path do
+                  .modal-header
+                    h5#exampleModalCenterTitle.modal-title Modal title
+                    button.close aria-label="Close" data-dismiss="modal" type="button" 
+                      span aria-hidden="true"  &times;
+                  .modal-body
+                    .list-group
+                      - course.course_editions.each do |edition|
+                        li.list-group-item
+                          label
+                            = radio_button_tag :id, edition.id, false, required: '' 
+                            = "#{edition.starts_on} - #{edition.ends_on}"
+                  .modal-footer
+                    button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+                    button.btn.btn-primary type="submit" Dodaj do koszyka
+      
     = paginate @courses
